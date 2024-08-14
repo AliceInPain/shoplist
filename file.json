@@ -1,0 +1,43 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@example.com",
+      "address": {
+        "street": "123 Elm St",
+        "city": "Springfield",
+        "zipcode": "12345"
+      },
+      "orders": [
+        {
+          "order_id": 101,
+          "product": "Laptop",
+          "amount": 1200.50
+        },
+        {
+          "order_id": 102,
+          "product": "Smartphone",
+          "amount": 800.75
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "address": {
+        "street": "456 Oak St",
+        "city": "Greendale",
+        "zipcode": "67890"
+      },
+      "orders": [
+        {
+          "order_id": 103,
+          "product": "Tablet",
+          "amount": 300.00
+        }
+      ]
+    }
+  ]
+}
