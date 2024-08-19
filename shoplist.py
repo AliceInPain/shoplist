@@ -1,48 +1,10 @@
 from pprint import pprint
+import json
 
-data = {
-    "users": [
-        {
-            "id": 1,
-            "name": "John Doe",
-            "email": "john@example.com",
-            "address": {
-                "street": "123 Elm St",
-                "city": "Springfield",
-                "zipcode": "12345"
-            },
-            "orders": [
-                {
-                    "order_id": 101,
-                    "product": "Laptop",
-                    "amount": 1200.50
-                },
-                {
-                    "order_id": 102,
-                    "product": "Smartphone",
-                    "amount": 800.75
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "name": "Jane Smith",
-            "email": "jane@example.com",
-            "address": {
-                "street": "456 Oak St",
-                "city": "Greendale",
-                "zipcode": "67890"
-            },
-            "orders": [
-                {
-                    "order_id": 103,
-                    "product": "Tablet",
-                    "amount": 300.00
-                }
-            ]
-        }
-    ]
-}
+with open("file.json", mode="r", encoding="utf-8") as read_file:
+    data = json.load(read_file)
+
+
 
 # USERS is a list of dictionaries
 
