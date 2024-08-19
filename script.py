@@ -6,46 +6,25 @@ with open("file.json", mode="r", encoding="utf-8") as read_file:
 
 
 def get_users_info(data):
-    if "users" in data:
-        return data["users"]
-    []
+    users = data.get("users", [])
+    return users
 
-
-def get_orders_info(users_info):
-    orders_info_dict = {}
-    for user in users_info:
-        orders_info_dict[user["name"]] = user["orders"] 
-    return orders_info_dict           
-            
-def get_orders_amount(orders_info):
-    orders_amount_dict = {}
-    for order in orders_info:
-        orders_amount_dict[order["product"]] = order["amount"] 
-    return orders_amount_dict
-
-def get_users_with_orders(users_info):
+def get_users_with_order(users_info):
     users_with_orders = []
     for user in users_info:
-        if user["orders"]:  # Check if the user has orders
-            users_with_orders.append(user)
-        return users_with_orders
-
-     
+        if user["orders"]:
+            users_with_orders.append(user["name"])
+    print(f"Users with Orders: {users_with_orders}")    
     
-        
+def get_products_and_amounts(users_info):
+    for user in users_info:
+        print(f"User: {user["name"]}")
+        for order in user["orders"]:
+            print(f"   Product: {order["product"]}, Amount: ${order["amount"]}")
+    
 
+users_info = get_users_info(data)
 
-
-
-
-users_info = get_users_info(data) 
-print("Users Info:", users_info)
-
-orders_info = get_orders_info(users_info)
-print("Order Info:", orders_info)
-
-orders_amount = get_orders_amount(orders_info)
-print("Order Amount:", orders_amount)
-
-info_of_users_with_orders = get_users_with_orders(users_info)
-print("Users with Orders:", info_of_users_with_orders)
+# Execute the functions with the processed users data
+get_users_with_order(users_info)
+get_products_and_amounts(users_info)
